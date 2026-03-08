@@ -2,7 +2,7 @@ name: Daily Brief
 
 on:
   schedule:
-    - cron: '0 8 * * *'   # Daily 8am UTC
+    - cron: '0 12 * * *'  # Daily 7am ET (UTC-5 EST / UTC-4 EDT)
   workflow_dispatch:        # Manual trigger from GitHub UI
     inputs:
       window:
