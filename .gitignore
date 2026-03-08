@@ -1,0 +1,5 @@
+.env
+config.json
+briefs/
+cache/
+node_modules/

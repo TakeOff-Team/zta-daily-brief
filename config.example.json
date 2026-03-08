@@ -1,0 +1,26 @@
+{
+  "briefName": "My Daily Brief",
+  "briefDescription": "a daily briefing for professionals who want to stay ahead without drowning in noise",
+  "audience": "describe your audience here — who are they and what do they need from this brief?",
+  "includeContentAngles": false,
+  "topics": ["your-topic", "another-topic", "keyword-to-track"],
+  "timeWindow": "24h",
+  "reddit": {
+    "subreddits": ["subreddit1", "subreddit2", "subreddit3"],
+    "postsPerSubreddit": 15
+  },
+  "twitter": {
+    "accounts": ["handle1", "handle2", "handle3"]
+  },
+  "youtube": {
+    "channels": [
+      {"id": "UCxxxxxxxxxxxxxxxxxxxxxxx", "name": "Channel Name"},
+      {"id": "UCxxxxxxxxxxxxxxxxxxxxxxx", "name": "Another Channel"}
+    ]
+  },
+  "delivery": {
+    "email": "you@example.com",
+    "saveMarkdown": true,
+    "outputDir": "./briefs"
+  }
+}
