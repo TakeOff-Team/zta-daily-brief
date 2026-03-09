@@ -47,6 +47,12 @@ async function runWithTiming(name, fn) {
 async function main() {
   const analyzeOnly = process.argv.includes('--analyze-only');
 
+  // Check for required API key
+  if (!process.env.ANTHROPIC_API_KEY) {
+    console.error('ANTHROPIC_API_KEY not set. Run "node setup.js" or add it to your .env file.');
+    process.exit(1);
+  }
+
   // Load config
   const configPath = './config.json';
   if (!fs.existsSync(configPath)) {

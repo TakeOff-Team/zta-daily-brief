@@ -48,7 +48,7 @@ Based on this data, produce the following sections for today's brief:
 
 2. WHAT_PEOPLE_ARE_SAYING: 3 bullet points of real signal from the data. What are people actually talking about? Quote or paraphrase specific posts/comments where possible. No generic observations.
 
-3. AI_UPDATES: 3-5 bullet points of specific news from the past 24 hours — new releases, feature launches, major announcements. Only include things that are clearly new/announced recently. If there's nothing concrete in the data, say "No major updates in this window." Be specific: name the thing, what changed, why it matters in one sentence.
+3. NOTABLE_UPDATES: 3-5 bullet points of specific news from the past 24 hours — new releases, feature launches, major announcements. Only include things that are clearly new/announced recently. If there's nothing concrete in the data, say "No major updates in this window." Be specific: name the thing, what changed, why it matters in one sentence.
 ${includeContentAngles ? `
 4. CONTENT_ANGLES: 3 specific content angles relevant to this niche for ${audience}. Each angle should include the hook framed out (the first sentence or headline), not just a topic name.
 ` : ''}
@@ -61,7 +61,7 @@ WHAT_PEOPLE_ARE_SAYING:
 - [observation 2]
 - [observation 3]
 
-AI_UPDATES:
+NOTABLE_UPDATES:
 - [update 1]
 - [update 2]
 - [update 3]
@@ -88,7 +88,7 @@ CONTENT_ANGLES:
   return {
     topStory: extract('TOP_STORY'),
     whatPeopleSaying: extract('WHAT_PEOPLE_ARE_SAYING'),
-    aiUpdates: extract('AI_UPDATES'),
+    aiUpdates: extract('NOTABLE_UPDATES'),
     contentAngles: extract('CONTENT_ANGLES'),
   };
 }
