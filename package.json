@@ -6,8 +6,8 @@
   "main": "src/index.js",
   "scripts": {
     "setup": "node setup.js",
-    "scrape": "node --env-file=.env src/index.js",
-    "analyze": "node --env-file=.env src/index.js --analyze-only"
+    "scrape": "node src/index.js",
+    "analyze": "node src/index.js --analyze-only"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.36.0",

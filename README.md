@@ -65,15 +65,40 @@ Your brief will be saved to `./briefs/` and emailed if you configured delivery.
 
 The included workflow runs your brief automatically every day at 8am UTC.
 
-**Steps:**
+### Step 1 — Push to GitHub
 
-1. Push this folder to a GitHub repo
-2. Go to **Settings → Secrets and variables → Actions** and add:
-   - `DAILY_BRIEF_CONFIG` — paste the full contents of your `config.json`
-   - `ANTHROPIC_API_KEY` — your Anthropic API key
-   - `APIFY_TOKEN` — only if you enabled Twitter/X
-   - `RESEND_API_KEY` — only if you enabled email delivery
-3. Go to **Actions → Daily Brief → Enable workflow**
+```bash
+git init
+git add .
+git commit -m "initial commit"
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git push -u origin main
+```
+
+### Step 2 — Add your secrets
+
+Go to your repo on GitHub → **Settings → Secrets and variables → Actions → New repository secret** and add each of the following:
+
+| Secret name | Where to get it | Required? |
+|---|---|---|
+| `ANTHROPIC_API_KEY` | [console.anthropic.com](https://console.anthropic.com) → API Keys | Always |
+| `DAILY_BRIEF_CONFIG` | Paste the full contents of your `config.json` file | Always |
+| `APIFY_TOKEN` | [console.apify.com](https://console.apify.com) → Settings → Integrations | Only if using Twitter/X |
+| `RESEND_API_KEY` | [resend.com](https://resend.com) → API Keys | Only if using email delivery |
+
+**`DAILY_BRIEF_CONFIG`** should be the raw JSON from your `config.json`, for example:
+```json
+{
+  "briefName": "My Daily Brief",
+  "topics": ["AI", "startups"],
+  "reddit": { "subreddits": ["MachineLearning"] },
+  "delivery": { "email": "you@example.com", "saveMarkdown": true }
+}
+```
+
+### Step 3 — Enable the workflow
+
+Go to **Actions → Daily Brief → Enable workflow**.
 
 The brief will run daily and upload as a GitHub artifact (retained 30 days). If you added an email address to your config, it'll also land in your inbox.
 
