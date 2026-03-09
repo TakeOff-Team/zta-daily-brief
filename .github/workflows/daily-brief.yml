@@ -30,11 +30,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: daily-brief
 
       - name: Write config from secret
         run: echo '${{ secrets.DAILY_BRIEF_CONFIG }}' > config.json
-        working-directory: daily-brief
 
       - name: Run scraper
         env:
@@ -42,12 +40,11 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: npm run scrape -- --window=${{ github.event.inputs.window || '24h' }}
-        working-directory: daily-brief
 
       - name: Upload brief as artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: brief-${{ github.run_id }}
-          path: daily-brief/briefs/
+          path: briefs/
           retention-days: 30

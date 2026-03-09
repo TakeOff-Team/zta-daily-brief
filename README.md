@@ -153,6 +153,8 @@ node --env-file=.env src/index.js --analyze-only
 
 Go to `youtube.com/@channelname`, right-click → View Page Source, then search for `"channelId"`. Copy the value that looks like `UCxxxxxxxxxxxxxxxxxxxxxxx`.
 
+**Tip:** Pick channels that are tightly focused on your niche. A general tech channel will pull in videos that have nothing to do with your brief topic — Claude can only summarize what it's given.
+
 ---
 
 ## FAQ
@@ -162,6 +164,9 @@ Yes. Just say no when the setup wizard asks, or remove the `twitter` key from `c
 
 **What if I don't want email delivery?**
 Leave the email field blank in setup. Your briefs will save to `./briefs/` as markdown files instead.
+
+**Can I use a custom "from" address for emails?**
+The default sender is `briefs@resend.dev` (Resend's shared domain). To use your own address, verify a custom domain in your Resend dashboard and update the `from` field in `src/delivery/email.js`.
 
 **How do I change my niche after setup?**
 Edit `config.json` directly. Change `briefName`, `briefDescription`, `audience`, `topics`, and your platform lists. No code changes needed.
